@@ -10,6 +10,7 @@ This project is an AI-powered Snake game where an agent learns to play using **D
 - **Pygame Visualization**: Watch the AI play in real-time.
 - **Model Saving & Loading**: Continue training from saved checkpoints.
 
+<img src=Screenshots/image.png width='520px'>
 ![game_image](Screenshots/image.png)
 
 ## Installation
@@ -25,8 +26,15 @@ pip install -r requirements.txt
 ### 3. Run the AI
 To train and watch the AI play:
 ```sh
+python snake_ai.py --ai
+```
+Control the frame rate using the up and down arrow keys.
+
+To play the game manually:
+```sh
 python snake_ai.py
 ```
+Control the snake with the arrow keys.
 
 ## Project Structure
 ```
@@ -40,9 +48,14 @@ python snake_ai.py
 ## Customization
 Modify `settings.py` to adjust:
 - Learning rate (`LR`)
-- Grid size, screen dimensions
+- Hidden layer size
+- Discount factor (`GAMMA`)
+- Epsilon greedy settings (`EPSILON`)
+- Soft update factor (`TAU`)
+- Screen dimensions
 - FPS settings
 - Model checkpoint path
+- Game colours
 
 ## Training Process
 The AI learns through **reinforcement learning** by playing games and improving based on rewards:
@@ -51,9 +64,7 @@ The AI learns through **reinforcement learning** by playing games and improving 
 - Small rewards for moving toward food, penalties for moving away
 
 ## Future Improvements
-- Implementing convolutional neural networks (CNNs) for better vision-based learning
-- Training using external reinforcement learning libraries
-- Allowing user-controlled vs. AI matches
+- Compare player scores to AI scores
 
 ## Contributing
 Pull requests are welcome! Please open an issue for major changes.
