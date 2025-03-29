@@ -23,11 +23,11 @@ FPS = [2000, 1000, 500, 100, 50, 30, 10, 5]
 # Model settings
 HIDDEN_LAYER_SIZE = 128
 LR = 0.001 # learning rate
-GAMMA = 0.95
-TAU = 0.01
-EPSILON = 1
-EPSILON_DECAY = 0.995
-EPSILON_MIN = 0.001
+GAMMA = 0.95 # discount factor
+TAU = 0.01 # soft update fraction
+EPSILON = 1 #initial epsilon
+EPSILON_DECAY = 0.995 # decay rate
+EPSILON_MIN = 0.001 # final epsilon (ensure some randomness at later stages)
 
 
 # set to true to track model progress and to plot results after training
