@@ -9,9 +9,9 @@ This project is an AI-powered Snake game where an agent learns to play using **D
 - **Epsilon-Greedy Strategy**: Balances exploration vs. exploitation.
 - **Pygame Visualization**: Watch the AI play in real-time.
 - **Model Saving & Loading**: Continue training from saved checkpoints.
+- **Manual Mode**: Play the game yourself and try to beat the score of your AI!
 
 <img src=Screenshots/image.png width='520px'>
-![game_image](Screenshots/image.png)
 
 ## Installation
 ### 1. Clone the repository
@@ -62,6 +62,7 @@ The AI learns through **reinforcement learning** by playing games and improving 
 - +50: Eating food
 - -20: Colliding with the wall or itself
 - Small rewards for moving toward food, penalties for moving away
+- Small reward for staying alive
 
 ## Future Improvements
 - Compare player scores to AI scores
