@@ -215,7 +215,6 @@ class SnakeAI:
 
     def reset(self):
         '''Resets the game afer a game over.'''
-        print(self.score)
         self.snake = [
             pygame.Vector2((WIDTH + LEFT_BUFF)/2, (HEIGHT + TOP_BUFF)/2), 
             pygame.Vector2((WIDTH + LEFT_BUFF)/2, (HEIGHT + TOP_BUFF)/2 + 10), 
@@ -388,13 +387,13 @@ class SnakeAI:
                     elif event.key == pygame.K_DOWN:
                         self.fps_idx += 1
                 if not self.use_ai and event.type == pygame.KEYDOWN:
-                    if event.key == pygame.K_UP:
+                    if event.key == pygame.K_UP and not (self.direction == Direction.DOWN):
                         self.direction = Direction.UP
-                    elif event.key == pygame.K_DOWN:
+                    elif event.key == pygame.K_DOWN and not (self.direction == Direction.UP):
                         self.direction = Direction.DOWN
-                    elif event.key == pygame.K_LEFT:
+                    elif event.key == pygame.K_LEFT and not (self.direction == Direction.RIGHT):
                         self.direction = Direction.LEFT
-                    elif event.key == pygame.K_RIGHT:
+                    elif event.key == pygame.K_RIGHT and not (self.direction == Direction.LEFT):
                         self.direction = Direction.RIGHT
                     
             screen.fill(BLACK)
@@ -445,7 +444,8 @@ if __name__ == '__main__':
     snakeAI = SnakeAI(use_ai)
     snakeAI.run()
 
-    snakeAI.brain.save_model()
+    if use_ai:
+        snakeAI.brain.save_model()
 
     if settings.tracking:
         plt.plot(iterations, high_score, label= 'high score')
